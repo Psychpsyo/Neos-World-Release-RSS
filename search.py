@@ -55,25 +55,25 @@ def getFeed(page = 1, featuredOnly = False):
 
 		linkSelf = atomFeed.createElement("link")
 		linkSelf.setAttribute("rel", "self")
-		linkSelf.appendChild(atomFeed.createTextNode(FEED_LINK + ("?page=" + str(page) if page > 1 else "")))
+		linkSelf.appendChild(atomFeed.createTextNode(FEED_LINK + "?" + ("featuredOnly=true&" if featuredOnly else "") + "page=" + str(page)))
 		feed.appendChild(linkSelf)
 
 		linkFirst = atomFeed.createElement("link")
 		linkFirst.setAttribute("rel", "first")
-		linkFirst.appendChild(atomFeed.createTextNode(FEED_LINK))
+		linkFirst.appendChild(atomFeed.createTextNode(FEED_LINK + ("?featuredOnly=true" if featuredOnly else "")))
 		feed.appendChild(linkFirst)
 
 		if page > 1:
 			linkPrev = atomFeed.createElement("link")
 			linkPrev.setAttribute("rel", "previous")
-			linkPrev.appendChild(atomFeed.createTextNode(FEED_LINK + "?page=" + str(page - 1)))
+			linkPrev.appendChild(atomFeed.createTextNode(FEED_LINK + "?" + ("featuredOnly=true&" if featuredOnly else "") + ("page=" + str(page - 1)))
 			feed.appendChild(linkPrev)
 
 		linkNext = atomFeed.createElement("link")
 		linkNext.setAttribute("rel", "next")
-		linkNext.appendChild(atomFeed.createTextNode(FEED_LINK + "?page=" + str(page + 1)))
+		linkNext.appendChild(atomFeed.createTextNode(FEED_LINK + "?" + ("featuredOnly=true&" if featuredOnly else "") + ("page=" + str(page + 1)))
 		feed.appendChild(linkNext)
-		
+
 		for world in worldList:
 			entry = atomFeed.createElement("entry")
 
