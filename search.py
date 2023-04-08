@@ -66,12 +66,12 @@ def getFeed(page = 1, featuredOnly = False):
 		if page > 1:
 			linkPrev = atomFeed.createElement("link")
 			linkPrev.setAttribute("rel", "previous")
-			linkPrev.appendChild(atomFeed.createTextNode(FEED_LINK + "?" + ("featuredOnly=true&" if featuredOnly else "") + ("page=" + str(page - 1)))
+			linkPrev.appendChild(atomFeed.createTextNode(FEED_LINK + "?" + ("featuredOnly=true&" if featuredOnly else "") + ("page=" + str(page - 1))))
 			feed.appendChild(linkPrev)
 
 		linkNext = atomFeed.createElement("link")
 		linkNext.setAttribute("rel", "next")
-		linkNext.appendChild(atomFeed.createTextNode(FEED_LINK + "?" + ("featuredOnly=true&" if featuredOnly else "") + ("page=" + str(page + 1)))
+		linkNext.appendChild(atomFeed.createTextNode(FEED_LINK + "?" + ("featuredOnly=true&" if featuredOnly else "") + ("page=" + str(page + 1))))
 		feed.appendChild(linkNext)
 
 		for world in worldList:
