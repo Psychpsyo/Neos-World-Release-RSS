@@ -171,7 +171,7 @@ class HttpHandler(BaseHTTPRequestHandler):
 			self.send_header("Access-Control-Allow-Origin", "*")
 			self.send_header("Cache-Control", "max-age=86400, stale-while-revalidate=31536000")
 			self.end_headers()
-			self.wfile.write(bytes(, "utf-8"))
+			self.wfile.write(bytes(feed, "utf-8"))
 		except ClientException: # The client made a mistake, send 400 Bad Request
 			self.send_response(400)
 			self.send_header("Access-Control-Allow-Origin", "*")
