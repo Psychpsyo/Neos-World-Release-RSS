@@ -17,7 +17,7 @@ class ClientException(Exception):
 	pass
 
 def getFeed(page = 1, featuredOnly = False):
-	cache = (featuredOnly? featured_feed_cache : feed_cache)
+	cache = (featured_feed_cache if featuredOnly else feed_cache)
 	# if page was cached within the last 30 minutes
 	if page in cache and (datetime.datetime.now() - cache[page]["lastUpdated"]).total_seconds() < 60 * 30:
 		return cache[page]["feedString"]
@@ -47,8 +47,8 @@ def getFeed(page = 1, featuredOnly = False):
 	xmlString = ""
 	
 	with minidom.parse("templateFeed.xml") as atomFeed:
-		atomFeed.getElementsByTagName("title").item(0).firstChild.data = featuredOnly? "Featured Neos Worlds" : "Published Neos Worlds"
-		atomFeed.getElementsByTagName("id").item(0).firstChild.data = featuredOnly? "https://feed.neos.love/atom.xml?featuredOnly=true" : "https://feed.neos.love/atom.xml"
+		atomFeed.getElementsByTagName("title").item(0).firstChild.data = "Featured Neos Worlds" if featuredOnly else "Published Neos Worlds"
+		atomFeed.getElementsByTagName("id").item(0).firstChild.data = "https://feed.neos.love/atom.xml?featuredOnly=true" if featuredOnly else "https://feed.neos.love/atom.xml"
 
 		atomFeed.getElementsByTagName("updated").item(0).appendChild(atomFeed.createTextNode(atomNow))
 		feed = atomFeed.getElementsByTagName("feed").item(0)
