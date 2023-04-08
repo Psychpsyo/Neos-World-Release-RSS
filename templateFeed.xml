@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xmlns:neos="https://feed.neos.love/schema/">
 	<title>Published Neos Worlds</title>
+	<icon>https://feed.neos.love/images/favicon.png</icon>
 	<subtitle>Newly published NeosVR worlds</subtitle>
 	<author>
 		<name>Psychpsyo</name>
