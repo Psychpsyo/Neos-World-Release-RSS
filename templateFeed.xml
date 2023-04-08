@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:neos="https://feed.neos.love/schema/">
+	<title>Published Neos Worlds</title>
+	<subtitle>Newly published NeosVR worlds</subtitle>
+	<author>
+		<name>Psychpsyo</name>
+		<email>psychpsyo@gmail.com</email>
+		<uri>https://psychpsyo.com/</uri>
+		<neos:userId>U-Psychpsyo</neos:userId>
+	</author>
+	<category term="Games/NeosVR/Worlds" label="NeosVR Worlds"/>
+	<id>https://feed.neos.love/atom.xml</id>
+	<updated></updated>
+</feed>
